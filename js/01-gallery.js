@@ -1,5 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
+
 const galleryDivEl = document.querySelector(".gallery");
 
 const galleryMarkup = galleryItems
@@ -34,11 +34,13 @@ function onClickImage(event) {
 `);
   instance.show();
 
-  galleryDivEl.addEventListener("keydown", closeModal);
-
   function closeModal(event) {
     if (event.key === "Escape") {
       instance.close();
     }
+    galleryDivEl.removeEventListener("keydown", closeModal);
   }
+
+  galleryDivEl.addEventListener("keydown", closeModal);
+
 }
