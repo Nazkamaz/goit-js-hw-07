@@ -3,14 +3,14 @@ import { galleryItems } from "./gallery-items.js";
 const galleryDivEl = document.querySelector(".gallery");
 
 const galleryMarkup = galleryItems
-  .map((element) => {
+  .map(({preview, original, description}) => {
     return `<div class="gallery__item">
-  <a class="gallery__link" href="${element.original}">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
-      src="${element.preview}"
-      data-source="${element.original}"
-      alt="${element.description}"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
     />
   </a>
 </div>`;
